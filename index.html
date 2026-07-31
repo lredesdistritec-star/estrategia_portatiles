@@ -11,6 +11,204 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <div class="welcome-consent" id="welcomeConsent" hidden>
+    <div class="welcome-consent__backdrop" data-consent-close></div>
+    <section class="welcome-consent__dialog" role="dialog" aria-modal="true"
+      aria-labelledby="welcomeConsentTitle" aria-describedby="welcomeConsentText">
+      <button class="welcome-consent__close" type="button"
+        aria-label="Cerrar y continuar solo con cookies necesarias" data-consent-close>×</button>
+
+      <div class="welcome-consent__brand">
+        <img src="./assets/logo-distritec.png" alt="Distritec">
+      </div>
+
+      <span class="welcome-consent__eyebrow">TU ALIADO EN TECNOLOGÍA</span>
+      <h2 id="welcomeConsentTitle">¡Bienvenid@s!</h2>
+
+      <p id="welcomeConsentText" class="welcome-consent__intro">
+        Queremos ofrecerte una experiencia clara, segura y personalizada.
+        Antes de continuar, revisa nuestras condiciones y el uso de cookies.
+      </p>
+
+      <div class="welcome-consent__legal">
+        <label class="consent-check">
+          <input type="checkbox" id="cookiesConsentCheck">
+          <span>He leído y acepto la
+            <a href="https://www.distritec.co/politicas-de-uso-de-cookies/" target="_blank" rel="noopener">Política de Cookies</a>.
+          </span>
+        </label>
+
+        <label class="consent-check">
+          <input type="checkbox" id="termsConsentCheck">
+          <span>He leído y acepto los
+            <a href="https://www.distritec.co/terminos-y-condiciones/" target="_blank" rel="noopener">Términos y Condiciones</a>.
+          </span>
+        </label>
+      </div>
+
+      <p class="welcome-consent__note">
+        Las cookies necesarias permiten el funcionamiento básico del sitio.
+        Las demás solo se activarán cuando otorgues tu autorización.
+      </p>
+
+      <div class="welcome-consent__actions">
+        <button class="consent-button consent-button--primary"
+          id="acceptAllConsent" type="button" disabled>Aceptar y continuar</button>
+
+        <button class="consent-button consent-button--secondary"
+          id="necessaryOnlyConsent" type="button">Continuar solo con necesarias</button>
+      </div>
+
+      <p class="welcome-consent__privacy">
+        Consulta también nuestra
+        <a href="https://www.distritec.co/tratamiento-de-datos/" target="_blank" rel="noopener">
+          Política de Tratamiento de Datos Personales
+        </a>.
+      </p>
+    </section>
+  </div>
+
+  
+  <!-- Mini formulario de prefiltro comercial -->
+  <div class="credit-prefilter" id="creditPrefilter" hidden>
+    <div class="credit-prefilter__backdrop" data-credit-close></div>
+
+    <section
+      class="credit-prefilter__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="creditPrefilterTitle"
+      aria-describedby="creditPrefilterDescription"
+    >
+      <button
+        class="credit-prefilter__close"
+        type="button"
+        aria-label="Cerrar formulario"
+        data-credit-close
+      >
+        ×
+      </button>
+
+      <div class="credit-prefilter__header">
+        <span class="credit-prefilter__eyebrow">SOLICITUD INICIAL</span>
+        <h2 id="creditPrefilterTitle">Quiero mi portátil HP</h2>
+        <p id="creditPrefilterDescription">
+          Completa estos datos para enviarte al chat con una asesoría más rápida y personalizada.
+        </p>
+      </div>
+
+      <form id="creditPrefilterForm" class="credit-prefilter__form" novalidate>
+        <div class="credit-field">
+          <label for="leadName">Nombre completo</label>
+          <input
+            type="text"
+            id="leadName"
+            name="leadName"
+            autocomplete="name"
+            placeholder="Ej. Marcela Jiménez"
+            required
+          >
+          <small class="credit-field__error">Escribe tu nombre completo.</small>
+        </div>
+
+        <div class="credit-field">
+          <label for="leadCity">Ciudad</label>
+          <input
+            type="text"
+            id="leadCity"
+            name="leadCity"
+            autocomplete="address-level2"
+            placeholder="Ej. Bogotá"
+            required
+          >
+          <small class="credit-field__error">Escribe tu ciudad.</small>
+        </div>
+
+        <div class="credit-field">
+          <label for="creditExperience">Experiencia crediticia</label>
+          <select id="creditExperience" name="creditExperience" required>
+            <option value="">Selecciona una opción</option>
+            <option>Es mi primera solicitud</option>
+            <option>He tenido créditos anteriormente</option>
+            <option>Actualmente tengo un crédito activo</option>
+            <option>No estoy seguro</option>
+          </select>
+          <small class="credit-field__error">Selecciona una opción.</small>
+        </div>
+
+        <div class="credit-field">
+          <label for="creditStatus">Situación actual</label>
+          <select id="creditStatus" name="creditStatus" required>
+            <option value="">Selecciona una opción</option>
+            <option>No tengo reportes negativos</option>
+            <option>Tengo reportes o pagos pendientes</option>
+            <option>No estoy seguro</option>
+            <option>Prefiero validarlo con un asesor</option>
+          </select>
+          <small class="credit-field__error">Selecciona una opción.</small>
+        </div>
+
+        <div class="credit-field">
+          <label for="financeEntity">¿Tienes crédito o cupo con alguna entidad?</label>
+          <select id="financeEntity" name="financeEntity" required>
+            <option value="">Selecciona una opción</option>
+            <option>ADDI</option>
+            <option>Sistecrédito</option>
+            <option>Banco de Bogotá</option>
+            <option>PayJoy</option>
+            <option>KrediYA</option>
+            <option>Aló Credit</option>
+            <option>TeAvalo</option>
+            <option>Otra entidad</option>
+            <option>Ninguna</option>
+            <option>No estoy seguro</option>
+          </select>
+          <small class="credit-field__error">Selecciona una opción.</small>
+        </div>
+
+        <div class="credit-field">
+          <label for="initialAmount">Inicial disponible</label>
+          <select id="initialAmount" name="initialAmount" required>
+            <option value="">Selecciona una opción</option>
+            <option>Desde $344.000</option>
+            <option>Entre $400.000 y $600.000</option>
+            <option>Más de $600.000</option>
+            <option>Necesito una opción con menor inicial</option>
+            <option>Aún no lo sé</option>
+          </select>
+          <small class="credit-field__error">Selecciona una opción.</small>
+        </div>
+
+        <label class="credit-authorization">
+          <input type="checkbox" id="leadAuthorization" required>
+          <span>
+            Autorizo el tratamiento de mis datos para recibir asesoría comercial.
+            <a
+              href="https://www.distritec.co/tratamiento-de-datos/"
+              target="_blank"
+              rel="noopener"
+            >
+              Ver política
+            </a>.
+          </span>
+        </label>
+        <small class="credit-field__error credit-authorization__error">
+          Debes autorizar el tratamiento de datos para continuar.
+        </small>
+
+        <button type="submit" class="credit-prefilter__submit">
+          Enviar y continuar por WhatsApp
+        </button>
+
+        <p class="credit-prefilter__note">
+          Esta información es preliminar y no representa una aprobación de crédito.
+        </p>
+      </form>
+    </section>
+  </div>
+
+
   <header class="topbar">
     <div class="container nav">
       <img src="./assets/logo-distritec.png" class="brand" alt="Distritec">
@@ -28,7 +226,7 @@
       <span class="campaign-dot"></span>
       <strong>REGRESO A CLASES</strong>
       <span>Estudia, trabaja y crea con tu nuevo portátil HP.</span>
-      <a href="#credito">Solicita tu estudio</a>
+      <a href="#" class="js-open-credit-form">Solicita tu estudio</a>
     </div>
   </div>
 
@@ -45,7 +243,7 @@
               rápido y listo para acompañar tu rutina.
             </p>
           <div class="hero-actions">
-            <a href="#credito" class="btn btn-primary pulse">Quiero mi crédito</a>
+            <button type="button" class="btn btn-primary pulse js-open-credit-form">Quiero mi crédito</button>
             <a href="#caracteristicas" class="btn btn-ghost">Ver características</a>
           </div>
           <div class="trust-row">
@@ -175,7 +373,7 @@
               <span class="purchase-label">INICIAL DESDE</span>
               <strong class="purchase-price">$344.000</strong>
               <p>Sujeto a validación y aprobación del estudio de crédito.</p>
-              <a href="#credito" class="purchase-link">Quiero solicitar mi crédito</a>
+              <a href="#" class="purchase-link js-open-credit-form">Quiero solicitar mi crédito</a>
             </div>
           </article>
           <article class="purchase-card purchase-card-cash reveal">
@@ -249,7 +447,7 @@
           <h2>Tu próximo portátil puede estar más cerca de lo que imaginas.</h2>
           <p>Solicita tu estudio y deja que nuestro equipo te acompañe en el proceso.</p>
         </div>
-        <a href="#" class="btn btn-dark" id="creditButton">Quiero mi crédito</a>
+        <a href="#" class="btn btn-dark js-open-credit-form">Quiero mi crédito</a>
       </div>
     </section>
   </main>
